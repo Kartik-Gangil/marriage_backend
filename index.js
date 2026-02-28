@@ -73,6 +73,30 @@ app.post('/api/marriage', async (req, res) => {
         const data = await WeedingEntry.create({
             name, fatherName, caste, subCaste, dateOfBirth, age, education, maritalStatus, profession, color, weight, cityOrPlace, societyOrCommunity, expectedPartnerAge, maternalUncleProfession, mobileNo, address
         })
+        await sendMail(
+            "shyama911@zohomail.in",
+            `
+  <h2>Marriage Registration Entry</h2>
+
+  <p><strong>Name:</strong> ${name}</p>
+  <p><strong>Father Name:</strong> ${fatherName}</p>
+  <p><strong>Caste:</strong> ${caste}</p>
+  <p><strong>Sub Caste / Gotra:</strong> ${subCaste}</p>
+  <p><strong>Date of Birth:</strong> ${dateOfBirth}</p>
+  <p><strong>Age:</strong> ${age}</p>
+  <p><strong>Education:</strong> ${education}</p>
+  <p><strong>Marital Status:</strong> ${maritalStatus}</p>
+  <p><strong>Profession:</strong> ${profession}</p>
+  <p><strong>Color:</strong> ${color}</p>
+  <p><strong>Weight:</strong> ${weight}</p>
+  <p><strong>City / Place:</strong> ${cityOrPlace}</p>
+  <p><strong>Society / Community:</strong> ${societyOrCommunity}</p>
+  <p><strong>Expected Partner Age:</strong> ${expectedPartnerAge}</p>
+  <p><strong>Maternal Uncle Profession:</strong> ${maternalUncleProfession}</p>
+  <p><strong>Mobile No:</strong> ${mobileNo}</p>
+  <p><strong>Address:</strong> ${address}</p>
+  `
+        );
         return res.status(200).json({ data });
     } catch (error) {
         return res.status(500).json({ error: error.message });
