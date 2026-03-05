@@ -30,7 +30,7 @@ const weedingEntrySchema = new mongoose.Schema({
         required: true
     },
 
-    age: {
+    height: {
         type: Number,
         required: true
     },
@@ -69,7 +69,7 @@ const weedingEntrySchema = new mongoose.Schema({
         required: true
     },
 
-    societyOrCommunity: {
+    disabilities: {
         type: String,
         trim: true,
         required: true
@@ -93,9 +93,12 @@ const weedingEntrySchema = new mongoose.Schema({
         required: true
     },
 
+    land: {
+        type: String,
+        required: true
+    },
     address: {
         type: String,
-        trim: true,
         required: true
     },
 },

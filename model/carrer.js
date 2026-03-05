@@ -7,7 +7,7 @@ const carrer = new mongoose.Schema(
             trim: true,
         },
 
-        village: {
+        cast: {
             type: String,
             trim: true,
         },

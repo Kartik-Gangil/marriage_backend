@@ -46,10 +46,10 @@ app.post('/api/register', async (req, res) => {
 
 
 app.post('/api/carrers', async (req, res) => {
-    const { name, village, age, education, workExperience, mobile, address } = req.body;
+    const { name, cast, age, education, workExperience, mobile, address } = req.body;
     try {
         const data = await Carrer.create({
-            name, village, age, education, workExperience, mobile, address
+            name, cast, age, education, workExperience, mobile, address
         })
         await sendMail("shyama911@zohomail.in",
             `<h2>Carrer Entry</h2><p>Name: ${name}</p>
@@ -68,10 +68,10 @@ app.post('/api/carrers', async (req, res) => {
 });
 
 app.post('/api/marriage', async (req, res) => {
-    const { name, fatherName, caste, subCaste, dateOfBirth, age, education, maritalStatus, profession, color, weight, cityOrPlace, societyOrCommunity, expectedPartnerAge, maternalUncleProfession, mobileNo, address } = req.body;
+    const { name, fatherName, caste, subCaste, dateOfBirth, age, education, maritalStatus, profession, color, weight, cityOrPlace, societyOrCommunity, expectedPartnerAge, maternalUncleProfession, mobileNo, land, address } = req.body;
     try {
         const data = await WeedingEntry.create({
-            name, fatherName, caste, subCaste, dateOfBirth, age, education, maritalStatus, profession, color, weight, cityOrPlace, societyOrCommunity, expectedPartnerAge, maternalUncleProfession, mobileNo, address
+            name, fatherName, caste, subCaste, dateOfBirth, age, education, maritalStatus, profession, color, weight, cityOrPlace, societyOrCommunity, expectedPartnerAge, maternalUncleProfession, mobileNo,land, address
         })
         await sendMail(
             "shyama911@zohomail.in",
@@ -94,6 +94,7 @@ app.post('/api/marriage', async (req, res) => {
   <p><strong>Expected Partner Age:</strong> ${expectedPartnerAge}</p>
   <p><strong>Maternal Uncle Profession:</strong> ${maternalUncleProfession}</p>
   <p><strong>Mobile No:</strong> ${mobileNo}</p>
+  <p><strong>Land:</strong> ${land}</p>
   <p><strong>Address:</strong> ${address}</p>
   `
         );
