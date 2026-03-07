@@ -43,7 +43,7 @@ const weedingEntrySchema = new mongoose.Schema({
 
     maritalStatus: {
         type: String,
-        enum: ["अविवाहित", "विवाहित", "Divorced", "Widowed"],
+        enum: ["अविवाहित", "विवाहित", "तलाक", "विधवा"],
         default: "अविवाहित",
     },
 
@@ -71,7 +71,6 @@ const weedingEntrySchema = new mongoose.Schema({
 
     disabilities: {
         type: String,
-        trim: true,
         required: true
     },
 
