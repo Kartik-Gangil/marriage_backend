@@ -53,8 +53,8 @@ app.post('/api/carrers', async (req, res) => {
         })
         await sendMail("shyama911@zohomail.in",
             `<h2>Carrer Entry</h2><p>Name: ${name}</p>
-            <p>village: ${village}</p>
             <p>Mobile: ${mobile}</p>
+            <p>cast: ${cast}</p>
             <p>Age: ${age}</p>
             <p>work experience: ${workExperience}</p>
             <p>Address: ${address}</p>
@@ -68,10 +68,10 @@ app.post('/api/carrers', async (req, res) => {
 });
 
 app.post('/api/marriage', async (req, res) => {
-    const { name, fatherName, caste, subCaste, dateOfBirth, age, education, maritalStatus, profession, color, weight, cityOrPlace, societyOrCommunity, expectedPartnerAge, maternalUncleProfession, mobileNo, land, address } = req.body;
+    const { name, fatherName, caste, subCaste, dateOfBirth, height, education, maritalStatus, profession, color, weight, cityOrPlace, disabilities, expectedPartnerAge, maternalUncleProfession, mobileNo, land, address } = req.body;
     try {
         const data = await WeedingEntry.create({
-            name, fatherName, caste, subCaste, dateOfBirth, age, education, maritalStatus, profession, color, weight, cityOrPlace, societyOrCommunity, expectedPartnerAge, maternalUncleProfession, mobileNo,land, address
+            name, fatherName, caste, subCaste, dateOfBirth, height, education, maritalStatus, profession, color, weight, cityOrPlace, disabilities, expectedPartnerAge, maternalUncleProfession, mobileNo,land, address
         })
         await sendMail(
             "shyama911@zohomail.in",
@@ -83,14 +83,14 @@ app.post('/api/marriage', async (req, res) => {
   <p><strong>Caste:</strong> ${caste}</p>
   <p><strong>Sub Caste / Gotra:</strong> ${subCaste}</p>
   <p><strong>Date of Birth:</strong> ${dateOfBirth}</p>
-  <p><strong>Age:</strong> ${age}</p>
+  <p><strong>Height:</strong> ${height}</p>
   <p><strong>Education:</strong> ${education}</p>
   <p><strong>Marital Status:</strong> ${maritalStatus}</p>
   <p><strong>Profession:</strong> ${profession}</p>
   <p><strong>Color:</strong> ${color}</p>
   <p><strong>Weight:</strong> ${weight}</p>
   <p><strong>City / Place:</strong> ${cityOrPlace}</p>
-  <p><strong>Society / Community:</strong> ${societyOrCommunity}</p>
+  <p><strong>Disabilities:</strong> ${disabilities}</p>
   <p><strong>Expected Partner Age:</strong> ${expectedPartnerAge}</p>
   <p><strong>Maternal Uncle Profession:</strong> ${maternalUncleProfession}</p>
   <p><strong>Mobile No:</strong> ${mobileNo}</p>
